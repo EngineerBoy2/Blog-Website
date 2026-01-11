@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modern Blog — Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#">Modern<span>Blog</span></a>
+
+      <div class="controls">
+        <input id="search" class="search" type="search" placeholder="Search posts or tags…" aria-label="Search posts" />
+        <button id="dark-toggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+        <button id="menu-toggle" class="icon-btn hamburger" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+
+    <nav id="main-nav" class="nav">
+      <ul id="category-list" class="categories"></ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="sidebar">
+      <div class="about card">
+        <h3>About</h3>
+        <p>Demo blog built with HTML/CSS/JS — search, tags, dark mode, comments (localStorage), and share buttons.</p>
+        <a class="spec-link" href="/mnt/data/Blog Website.docx.pdf" target="_blank" rel="noopener">Download Project Spec (PDF)</a>
+      </div>
+
+      <div class="card">
+        <h4>Tags</h4>
+        <div id="tag-cloud" class="tag-cloud"></div>
+      </div>
+
+      <div class="card">
+        <h4>Recent</h4>
+        <ul id="recent-list" class="recent-list"></ul>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="toolbar">
+        <div id="filter-chips" class="chips"></div>
+      </div>
+
+      <section id="posts-grid" class="posts-grid" aria-live="polite"></section>
+
+      <template id="post-preview-tpl">
+        <article class="post-card card">
+          <img class="post-thumb" alt="post image" />
+          <div class="post-body">
+            <div class="meta">
+              <span class="date"></span>
+              <span class="tags"></span>
+            </div>
+            <h3 class="title"></h3>
+            <p class="excerpt"></p>
+            <div class="card-actions">
+              <button class="btn view-btn">Read</button>
+              <button class="btn share-btn">Share</button>
+            </div>
+          </div>
+        </article>
+      </template>
+
+      <!-- Post details (single-view) -->
+      <article id="post-view" class="post-view card hidden" aria-live="polite">
+        <button id="back-to-list" class="btn small">← Back</button>
+        <h1 id="pv-title"></h1>
+        <div class="pv-meta">
+          <span id="pv-date"></span>
+          <div id="pv-tags" class="pv-tags"></div>
+        </div>
+        <img id="pv-image" class="pv-image" alt="Post image" />
+        <div id="pv-content" class="pv-content"></div>
+
+        <div class="share-row">
+          <button id="pv-share" class="btn">Share Post</button>
+        </div>
+
+        <section class="comments card">
+  <h3>Comments</h3>
+
+  <div id="comments-list" class="comments-list"></div>
+
+  <div class="comment-box">
+    <h4>Leave a Comment</h4>
+
+    <form id="comment-form" class="comment-form">
+      <div class="input-group">
+        <input id="comment-name" type="text" required />
+        <label>Your Name</label>
+        <span class="bar"></span>
+      </div>
+
+      <div class="input-group">
+        <textarea id="comment-text" rows="3" required></textarea>
+        <label>Your Comment</label>
+        <span class="bar"></span>
+      </div>
+
+      <div class="comment-actions">
+        <button class="btn submit-btn">Post Comment</button>
+        <button id="clear-comments" class="btn ghost">Clear</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>Made with ♥ — Demo Blog • <a href="/mnt/data/Blog Website.docx.pdf" target="_blank" rel="noopener">Project spec (PDF)</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
